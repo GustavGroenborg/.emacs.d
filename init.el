@@ -32,6 +32,7 @@
 (require 'setup/ui)
 (require 'setup/modeline)
 (require 'setup/dired)
+(require 'setup/magit)
 (require 'lsp)
 (require 'languages)
 
