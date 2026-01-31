@@ -2,6 +2,7 @@ auto-save-list/
 elpa/
 eshell/
 straight/
+transient/
 tutorial/
 projects
 *~
