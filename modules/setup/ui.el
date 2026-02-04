@@ -9,14 +9,12 @@
 (global-display-line-numbers-mode 1)
 (column-number-mode 1)
 (menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
 
-;; Disabled until I find a way to get emojis to work.
-;; Appearently this will not work, unless I use the GUI version of
-;; emacs, which I will not do. No nyan-cat for me.
-;; (use-package nyan-mode
-;;   :straight t
-;;   :init
-;;   (nyan-mode))
-
+(use-package nyan-mode
+  :straight t
+  :init
+  (nyan-mode))
 
 (provide 'setup/ui)
