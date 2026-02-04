@@ -15,7 +15,6 @@
   (load bootstrap-file nil 'nomessage))
 
 (use-package emacs
-  :straight t
   :init
   (set-charset-priority 'unicode)
   (setq locale-coding-system 'utf-8
@@ -33,6 +32,7 @@
 (require 'setup/modeline)
 (require 'setup/dired)
 (require 'setup/magit)
+(require 'setup/envrc)
 (require 'lsp)
 (require 'languages)
 
