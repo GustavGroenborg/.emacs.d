@@ -33,6 +33,7 @@
 (require 'setup/dired)
 (require 'setup/magit)
 (require 'setup/envrc)
+(require 'setup/qol)
 (require 'lsp)
 (require 'languages)
 
