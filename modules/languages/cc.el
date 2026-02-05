@@ -18,8 +18,9 @@
 	("C-c C-c" . project-compile))
 
   :config
-  (setq c-default-style "linux")
   (setq-default c-basic-offset 4)
+  (setq-default indent-tabs-mode nil)
+  (setq c-default-style "linux")
   (setq compile-command "cmake --build build"))
 
 (provide 'languages/cc)

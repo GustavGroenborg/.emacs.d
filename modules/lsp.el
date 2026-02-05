@@ -14,19 +14,20 @@
   ;; Optional: Show documentation in the echo area immediately
   (setq eldoc-echo-area-use-multiline-p nil))
 
+(use-package flymake
+  :defer t
+  :bind (:map flymake-mode-map
+	      ("M-n" . flymake-goto-next-error)
+	      ("M-p" . flymake-goto-prev-error)))
+
 (use-package company
   :straight t
   :hook (after-init . global-company-mode)
   :config
-  ;; 1. Speed up the popup (default is too slow)
+  ;; Speed up the popup (default is too slow)
   (setq company-idle-delay 0.1) ; Show menu after 0.1 seconds
   (setq company-minimum-prefix-length 1) ; Show menu after typing 1 character
-
-  ;; 2. Navigate the menu with M-n and M-p (standard Emacs keys)
-  ;; By default, company uses M-n (next) and M-p (previous)
-  ;; If you prefer arrow keys, it usually works out of the box in TUI.
-  
-  ;; 3. Make it loop (going down from the last item goes to the top)
+  ;; Make it loop (going down from the last item goes to the top)
   (setq company-selection-wrap-around t)
   (company-tng-mode))
 
