@@ -6,6 +6,10 @@
 
 (use-package cc-mode
   :defer t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.cppm\\'" . c++-mode))
+  (add-to-list 'cc-other-file-alist '("\\.cppm\\'" (".cpp")))
+  (add-to-list 'cc-other-file-alist '("\\.cpp\\'" (".hpp" ".h" ".cppm")))
   :hook
   ((auto-fill-mode)
    (c++-mode . eglot-ensure)
