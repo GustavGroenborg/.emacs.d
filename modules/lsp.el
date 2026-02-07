@@ -12,7 +12,21 @@
   (setq eglot-events-buffer-size 0)
   
   ;; Optional: Show documentation in the echo area immediately
-  (setq eldoc-echo-area-use-multiline-p nil))
+  (setq eldoc-echo-area-use-multiline-p nil)
+  (setq compilation-finish-functions
+        (lambda (buf str)
+          (if (null (string-match "exited abnormally" str))
+              (run-at-time
+               "2 sec" nil 'delete-windows-on
+               (get-buffer-create "*compilation*"))
+            (message "The program compiled surprisingly well!"))))
+  (add-to-list 'eglot-ignored-server-capabilities :documentOnTypeFormattingProvider)
+  (add-to-list 'display-buffer-alist
+               '("\\*compilation\\*"
+                 (display-buffer-reuse-window display-buffer-in-side-window)
+                 (side . bottom)
+                 (reusable-frames . visible)
+                 (window-height . 0.2))))
 
 (use-package flymake
   :defer t
