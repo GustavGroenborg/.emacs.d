@@ -7,7 +7,8 @@
   (setq ls-lisp-verbosity '(size)))
 
 (use-package dired
-  :straight (:type built-in)
+  :init
+  (add-hook 'dired-mode-hook 'auto-revert-mode)
   :config
   ;; Standard listing: "Human readable" sizes, directories first
   (setq dired-listing-switches "-lha --group-directories-first")
