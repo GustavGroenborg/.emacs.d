@@ -24,7 +24,8 @@
   (set-keyboard-coding-system 'utf-8)
   (set-selection-coding-system 'utf-8)
   (prefer-coding-system 'utf-8)
-  (setq default-process-coding-system '(utf-8-unix . utf-8-unix)))
+  (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
+  (setq select-enable-clipboard t))
 
 (add-to-list 'load-path (expand-file-name "modules" user-emacs-directory))
 (require 'setup/fonts)
