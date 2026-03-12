@@ -7,6 +7,7 @@
   (org-startup-with-inline-images t)
   :hook
   (org-mode . auto-fill-mode)
+  (org-mode . (lambda () (company-mode -1)))
   :config
   (require 'org-tempo)
   ;; Enable Python execution in Org-mode
