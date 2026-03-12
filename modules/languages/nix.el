@@ -1,5 +1,6 @@
 (use-package nix-mode
   :straight t
+  :if (executable-find "nix")
   :mode "\\.nix\\'"
   :hook
   (nix-mode . eglot-ensure)

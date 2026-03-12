@@ -12,6 +12,14 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+(use-package faces
+  :defer t
+  :if (< (display-pixel-height) 2160)
+  :config
+  (message "Not 4k display, setting default font height")
+  (set-face-attribute 'default nil
+		      :height 100))
+
 (use-package nyan-mode
   :straight t
   :init
