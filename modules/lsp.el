@@ -1,15 +1,22 @@
 (use-package eglot
   :straight t
   :defer t
-  :hook ((python-mode . eglot-ensure)
-         (c-mode      . eglot-ensure)
-         (c++-mode    . eglot-ensure)
-         (rust-mode   . eglot-ensure)
-         (LaTeX-mode  . eglot-ensure))
+  :preface
+  (defun my/eglot-org-src-fix ()
+    "Enables Pyright to start in temporary org-mode buffer"
+    (when (derived-mode-p 'python-mode)
+      (setq-local buffer-file-name (expand-file-name ".org_tmp_src.py" default-directory))
+      (eglot-ensure)))
+  :hook ((python-mode  . eglot-ensure)
+         (c-mode       . eglot-ensure)
+         (c++-mode     . eglot-ensure)
+         (rust-mode    . eglot-ensure)
+         (LaTeX-mode   . eglot-ensure)
+	 (org-src-mode . my/eglot-org-src-fix))
   :config
   ;; Optimization: Disable the extensive logging buffer to improve performance
   ;; (Very helpful in TUI/Terminal to reduce noise)
-  (setq eglot-events-buffer-size 0)
+  ;;(setq eglot-events-buffer-size 0)
   
   ;; Optional: Show documentation in the echo area immediately
   (setq eldoc-echo-area-use-multiline-p nil)

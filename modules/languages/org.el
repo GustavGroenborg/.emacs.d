@@ -4,6 +4,7 @@
   :custom
   (fill-column 80)
   (org-startup-with-inline-images t)
+  (org-startup-with-latex-preview t)
   :hook
   (org-mode . auto-fill-mode)
   (org-mode . (lambda () (company-mode -1)))
@@ -14,6 +15,7 @@
    'org-babel-load-languages
    '((emacs-lisp . t)
      (python . t))) ;; <--- The magic line
+  (add-to-list 'org-latex-packages-alist '("" "physics" t))
   
   ;; Stop Emacs from asking "Do you want to run this?" every time
   (setq org-confirm-babel-evaluate nil)
