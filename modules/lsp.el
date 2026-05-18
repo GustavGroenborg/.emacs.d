@@ -20,6 +20,13 @@
                "2 sec" nil 'delete-windows-on
                (get-buffer-create "*compilation*"))
             (message "The program compiled surprisingly well!"))))
+
+  (add-to-list 'eglot-server-programs
+               '((c++-mode c-mode)
+                 . ("clangd"
+                    "--header-insertion=never" ;; change to 'iwyu' if wanting insertion
+                    "--compile-commands-dir=build"
+                    )))
   (add-to-list 'eglot-ignored-server-capabilities :documentOnTypeFormattingProvider)
   (add-to-list 'display-buffer-alist
                '("\\*compilation\\*"
