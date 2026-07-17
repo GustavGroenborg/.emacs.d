@@ -17,9 +17,15 @@
   :hook
   (c-mode-common . (lambda ()
                      (auto-fill-mode)
-                     (eglot-ensure)))
+                     (eglot-ensure)
+                     ;; Dynamic regex path resolution for mirrored src/include trees
+                     (let ((current-dir default-directory))
+                       (setq-local ff-search-directories 
+                                   (list "."
+                                         (replace-regexp-in-string "/src/" "/include/" current-dir)
+                                         (replace-regexp-in-string "/include/" "/src/" current-dir))))))
   :bind
-  (:map c++-mode-map
+  (:map c-mode-base-map
 	;; Quick switching between header and source
 	("C-c o" . ff-find-other-file)
 	("C-c C-c" . project-compile))

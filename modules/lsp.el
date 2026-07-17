@@ -1,6 +1,8 @@
 (use-package eglot
   :straight t
   :defer t
+  :bind (:map eglot-mode-map
+              ("C-c a" . eglot-code-actions))
   :preface
   (defun my/eglot-org-src-fix ()
     "Enables Pyright to start in temporary org-mode buffer"
