@@ -5,5 +5,6 @@
 (require 'languages/nix)
 (require 'languages/org)
 (require 'languages/python)
+(require 'languages/lean4)
 
 (provide 'languages)

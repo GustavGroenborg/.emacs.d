@@ -21,7 +21,7 @@
   ;;(setq eglot-events-buffer-size 0)
   
   ;; Optional: Show documentation in the echo area immediately
-  (setq eldoc-echo-area-use-multiline-p nil)
+  (setq eldoc-echo-area-use-multiline-p t)
   (setq compilation-finish-functions
         (lambda (buf str)
           (if (null (string-match "exited abnormally" str))
