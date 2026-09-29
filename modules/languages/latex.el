@@ -27,7 +27,7 @@
           
           ;; --output-directory tells it where to write the .bbl file
           '("Biber" 
-            "biber --outputdirectory=build build/*.bcf" 
+	    "biber build/master"
             TeX-run-Biber nil t :help "Run Biber in build dir"))
          
          ;; Keep the rest of the commands, removing old LaTeX/Biber entries
@@ -37,6 +37,10 @@
               (lambda (&rest _)
                 (let ((dir (file-name-as-directory "build")))
                   (unless (file-exists-p dir)
-                    (make-directory dir))))))
+                    (make-directory dir)))))
+  ;; Force use of texlab
+  (with-eval-after-load 'eglot
+    (add-to-list 'eglot-server-programs
+                 '((latex-mode tex-mode context-mode) . ("texlab")))))
 
 (provide 'languages/latex)
