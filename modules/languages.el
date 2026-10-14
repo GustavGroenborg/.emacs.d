@@ -1,5 +1,6 @@
 (require 'languages/cc)
 (require 'languages/haskell)
+(require 'languages/java)
 (require 'languages/just)
 (require 'languages/latex)
 (require 'languages/nix)

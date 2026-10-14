@@ -43,4 +43,13 @@
     (add-to-list 'eglot-server-programs
                  '((latex-mode tex-mode context-mode) . ("texlab")))))
 
+(use-package flyspell
+  :defer t
+  :hook
+  (LaTeX-mode . flyspell-mode)
+  :config
+  (setq ispell-program-name "aspell")
+  (setq ispell-dictionary "en_GB")
+  (setq ispell-parser 'tex))
+
 (provide 'languages/latex)
