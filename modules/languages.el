@@ -6,5 +6,6 @@
 (require 'languages/org)
 (require 'languages/python)
 (require 'languages/lean4)
+(require 'languages/go)
 
 (provide 'languages)
